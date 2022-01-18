@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45A660092796944F00976DB8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A660082796944F00976DB8 /* Character.swift */; };
+		45A6600C2796B14200976DB8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A6600B2796B14200976DB8 /* Network.swift */; };
 		45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119A279687BA004D2585 /* AppDelegate.swift */; };
 		45C1119F279687BA004D2585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119E279687BA004D2585 /* ViewController.swift */; };
 		45C111A4279687BB004D2585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C111A3279687BB004D2585 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45A660082796944F00976DB8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		45A6600B2796B14200976DB8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		45C11197279687BA004D2585 /* GotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C1119A279687BA004D2585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C1119E279687BA004D2585 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +37,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45A66007279692C700976DB8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45A660082796944F00976DB8 /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		45A6600A279696B100976DB8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				45A6600B2796B14200976DB8 /* Network.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		45C1118E279687BA004D2585 = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				45C111AE2796881E004D2585 /* App */,
+				45A66007279692C700976DB8 /* Models */,
 				45C111B027968893004D2585 /* Controllers */,
+				45A6600A279696B100976DB8 /* Service */,
 				45C111AF2796882F004D2585 /* Resourses */,
 			);
 			path = GotApp;
@@ -156,6 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C1119F279687BA004D2585 /* ViewController.swift in Sources */,
+				45A660092796944F00976DB8 /* Character.swift in Sources */,
+				45A6600C2796B14200976DB8 /* Network.swift in Sources */,
 				45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
