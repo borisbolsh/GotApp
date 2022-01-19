@@ -60,8 +60,7 @@ final class Network {
             
             guard let data = data else { return }
             guard let image = UIImage(data: data) else { return }
-            completion(image)
-            
+           
             self?.cache.setObject(image, forKey: cacheKey)
             completion(image)
         }.resume()
