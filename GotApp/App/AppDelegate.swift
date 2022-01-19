@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         // TODO: Change to coordinator
-        let navVC = UINavigationController(rootViewController:ViewController())
+        let navVC = UINavigationController(rootViewController:ListViewController())
         
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()

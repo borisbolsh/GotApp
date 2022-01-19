@@ -1,12 +1,13 @@
 import Foundation
 
-struct Character: Decodable {
-    var id: UInt8
-    var firstName: String
-    var lastName: String
-    var fullName:  String
-    var title:  String
-    var family: String
+struct Character: Codable {
+    let id: UInt8
+    let firstName: String?
+    let lastName: String
+    let fullName:  String
+    let title:  String
+    let family: String
     var image: String
-    var imageUrl:  String
+    let imageUrl:  String
+    
 }

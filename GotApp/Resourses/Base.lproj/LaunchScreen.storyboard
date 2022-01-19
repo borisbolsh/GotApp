@@ -17,18 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g00-a8-M09">
-                                <rect key="frame" x="169.5" y="437.5" width="75" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-24" translatesAutoresizingMaskIntoConstraints="NO" id="7Rz-uo-l84">
+                                <rect key="frame" x="129" y="349" width="156" height="138.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game-of-thrones" translatesAutoresizingMaskIntoConstraints="NO" id="6I5-iT-sjh">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="156" id="Laf-5P-goo"/>
+                                            <constraint firstAttribute="height" constant="142" id="arx-g5-DpN"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game of Thrones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g00-a8-M09">
+                                        <rect key="frame" x="8.5" y="118" width="139" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="g00-a8-M09" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Vex-fb-VAt"/>
-                            <constraint firstItem="g00-a8-M09" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vUx-mQ-aSZ"/>
+                            <constraint firstItem="7Rz-uo-l84" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="9pf-M1-cSB"/>
+                            <constraint firstItem="7Rz-uo-l84" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bVs-Aw-J38"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +50,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="game-of-thrones" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
