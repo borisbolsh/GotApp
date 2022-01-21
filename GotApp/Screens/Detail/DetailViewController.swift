@@ -37,11 +37,17 @@ final class DetailViewController: UIViewController {
     }
     
     func configurate(with char: Character){
-        self.title = char.fullName
-        self.firstNameLabel.text = char.firstName
-        self.lastNameLabel.text = char.lastName
-        self.titleLabel.text = char.title
-        self.familyLabel.text = char.family
+        title = char.fullName
+       
+        if char.firstName == "" {
+            firstNameLabel.text = "Don't know"
+        } else {
+            firstNameLabel.text = char.firstName
+        }
+        
+        lastNameLabel.text = char.lastName
+        titleLabel.text = char.title
+        familyLabel.text = char.family
 
         Network.shared.fetchImage(from: char.imageUrl) { [weak self] image in
             guard let self = self else { return }

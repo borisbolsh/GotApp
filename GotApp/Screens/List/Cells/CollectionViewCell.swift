@@ -10,7 +10,7 @@ final class CollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.tintColor = .white
-        imageView.image = UIImage(named: "game-of-thrones")
+        imageView.image = UIImage(named: "logo")
         imageView.backgroundColor = .lightGray
         return imageView
     }()
@@ -57,11 +57,16 @@ final class CollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         label.text = nil
-        imageView.image = UIImage(named: "game-of-thrones")
+        imageView.image = UIImage(named: "logo")
     }
     
     func configure(with char: Character) {
-        label.text = char.firstName
+        if char.firstName == "" {
+            label.text = "Don't know"
+        } else {
+            label.text = char.firstName
+        }
+        
         Network.shared.fetchImage(from: char.imageUrl) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async {

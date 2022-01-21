@@ -3,6 +3,10 @@ import UIKit
 final class ListViewController: UIViewController {
     
     private var characters = [Character]()
+    private var filteredCharacters = [Character]()
+    private var inSearchMode = false
+    private var searchBar = UISearchBar()
+
     private let collectionView: UICollectionView
     private let spinner = UIActivityIndicatorView(style: .gray)
     
@@ -11,7 +15,6 @@ final class ListViewController: UIViewController {
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         super.init(nibName: nil, bundle: nil)
         self.title = "Game of Thrones"
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,14 +26,16 @@ final class ListViewController: UIViewController {
         
         setupCollectionView()
         configureActivityIndicator()
+        configureNavigationBar()
         fetchChars()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+    
         collectionView.frame = view.bounds
     }
+    
 }
 
 // MARK: Setup UI
@@ -54,6 +59,61 @@ extension ListViewController {
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         spinner.startAnimating()
     }
+    
+    private func configureNavigationBar() {
+        setStatusBar()
+//        navigationController?.navigationBar.backgroundColor = .white
+//        navigationController?.navigationBar.barTintColor = .white
+//        navigationController?.navigationBar.barStyle = .black
+//        navigationController?.navigationBar.isTranslucent = true
+  
+        configureSearchBarButton()
+    }
+
+    private func configureSearchBarButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
+    }
+    
+    func configureSearchBar() {
+           searchBar.delegate = self
+           searchBar.sizeToFit()
+           searchBar.showsCancelButton = true
+           searchBar.becomeFirstResponder()
+
+           navigationItem.rightBarButtonItem = nil
+           navigationItem.titleView = searchBar
+    }
+}
+
+// MARK: - Actions
+extension ListViewController {
+    @objc func showSearchBar() {
+        configureSearchBar()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension ListViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.titleView = nil
+        configureSearchBarButton()
+        inSearchMode = false
+        collectionView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText == "" || searchBar.text == nil {
+            inSearchMode = false
+            collectionView.reloadData()
+            view.endEditing(true)
+        } else {
+            inSearchMode = true
+            filteredCharacters = characters.filter({ $0.firstName?.lowercased().range(of: searchText.lowercased()) != nil })
+            collectionView.reloadData()
+        }
+    }
 }
 
 // MARK: API
@@ -73,13 +133,15 @@ extension ListViewController {
 extension ListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters.count
+        return inSearchMode ? filteredCharacters.count : characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-        cell.configure(with: characters[indexPath.row])
+
+        cell.configure(with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row])
+        
         return cell
     }
 }
@@ -91,7 +153,7 @@ extension ListViewController: UICollectionViewDelegate {
         
         //TODO: change soon
         let controller = DetailViewController()
-        controller.configurate(with: characters[indexPath.row])
+        controller.configurate(with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
     }
 }
