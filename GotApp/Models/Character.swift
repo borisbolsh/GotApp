@@ -1,6 +1,6 @@
 import Foundation
 
-struct Character: Codable {
+struct Character: Decodable {
     let id: UInt8
     let firstName: String?
     let lastName: String
@@ -9,5 +9,4 @@ struct Character: Codable {
     let family: String
     var image: String
     let imageUrl:  String
-    
 }

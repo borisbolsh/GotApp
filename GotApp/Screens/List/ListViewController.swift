@@ -6,14 +6,18 @@ final class ListViewController: UIViewController {
     private var filteredCharacters = [Character]()
     private var inSearchMode = false
     private var searchBar = UISearchBar()
-
+    
+    private var networkManager: NetworkManager?
     private let collectionView: UICollectionView
     private let spinner = UIActivityIndicatorView(style: .gray)
     
-    init() {
+    init(networkManager: NetworkManager) {
         let collectionViewLayout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        
         super.init(nibName: nil, bundle: nil)
+        
+        self.networkManager = networkManager
         self.title = "Game of Thrones"
     }
     
@@ -32,7 +36,7 @@ final class ListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
+        
         collectionView.frame = view.bounds
     }
     
@@ -62,26 +66,21 @@ extension ListViewController {
     
     private func configureNavigationBar() {
         setStatusBar()
-//        navigationController?.navigationBar.backgroundColor = .white
-//        navigationController?.navigationBar.barTintColor = .white
-//        navigationController?.navigationBar.barStyle = .black
-//        navigationController?.navigationBar.isTranslucent = true
-  
         configureSearchBarButton()
     }
-
+    
     private func configureSearchBarButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
     }
     
     func configureSearchBar() {
-           searchBar.delegate = self
-           searchBar.sizeToFit()
-           searchBar.showsCancelButton = true
-           searchBar.becomeFirstResponder()
-
-           navigationItem.rightBarButtonItem = nil
-           navigationItem.titleView = searchBar
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.showsCancelButton = true
+        searchBar.becomeFirstResponder()
+        
+        navigationItem.rightBarButtonItem = nil
+        navigationItem.titleView = searchBar
     }
 }
 
@@ -119,14 +118,20 @@ extension ListViewController: UISearchBarDelegate {
 // MARK: API
 extension ListViewController {
     private func fetchChars() {
-        Network.shared.fetchCharacters(){ (characters) in
+        networkManager?.getCharacters(completion: { characters, error in
             DispatchQueue.main.async {
-                self.characters = characters
-                self.spinner.stopAnimating()
-                self.collectionView.reloadData()
+                if let error = error {
+                    print(error)
+                }
+                if let chars = characters {
+                    self.characters = chars
+                    self.spinner.stopAnimating()
+                    self.collectionView.reloadData()
+                }
             }
-        }
+        })
     }
+   
 }
 
 // MARK: UICollectionViewDataSource
@@ -139,8 +144,11 @@ extension ListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-
-        cell.configure(with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row])
+        
+        
+        cell.configure(
+            with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row]
+        )
         
         return cell
     }
