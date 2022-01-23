@@ -14,6 +14,12 @@ final class CollectionViewCell: UICollectionViewCell {
         imageView.backgroundColor = .lightGray
         return imageView
     }()
+    var imageVi : Int = 0 {
+        didSet {
+            print("Hello")
+        }
+    }
+
     
     private let label: UILabel = {
         let label = UILabel()
@@ -24,7 +30,7 @@ final class CollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-            
+           
         contentView.backgroundColor = UIColor(named: "tileColor")
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 8
@@ -66,12 +72,12 @@ final class CollectionViewCell: UICollectionViewCell {
         } else {
             label.text = char.firstName
         }
-        
-        Network.shared.fetchImage(from: char.imageUrl) { [weak self] image in
-            guard let self = self else { return }
+
+        NetworkManager.shared.getImage(from: char.image) { image, error in
             DispatchQueue.main.async {
                 self.imageView.image = image
             }
         }
+        
     }
 }

@@ -49,12 +49,12 @@ final class DetailViewController: UIViewController {
         titleLabel.text = char.title
         familyLabel.text = char.family
 
-        Network.shared.fetchImage(from: char.imageUrl) { [weak self] image in
-            guard let self = self else { return }
+        NetworkManager.shared.getImage(from: char.image) { image, error in
             DispatchQueue.main.async {
                 self.personeImage.image = image
             }
         }
+        
     }
     
 }

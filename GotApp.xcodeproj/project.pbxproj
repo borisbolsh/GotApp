@@ -10,7 +10,6 @@
 		451D06EB27986E3B00728164 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451D06EA27986E3B00728164 /* UIViewController+Ext.swift */; };
 		4549B36B279854BE001E057B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549B36A279854BE001E057B /* DetailViewController.swift */; };
 		45A660092796944F00976DB8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A660082796944F00976DB8 /* Character.swift */; };
-		45A6600C2796B14200976DB8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A6600B2796B14200976DB8 /* Network.swift */; };
 		45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119A279687BA004D2585 /* AppDelegate.swift */; };
 		45C1119F279687BA004D2585 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119E279687BA004D2585 /* ListViewController.swift */; };
 		45C111A4279687BB004D2585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C111A3279687BB004D2585 /* Assets.xcassets */; };
@@ -31,7 +30,6 @@
 		451D06EA27986E3B00728164 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		4549B36A279854BE001E057B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		45A660082796944F00976DB8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		45A6600B2796B14200976DB8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		45C11197279687BA004D2585 /* GotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C1119A279687BA004D2585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C1119E279687BA004D2585 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				45E1D449279AB45E007A592E /* Networking */,
-				45A6600B2796B14200976DB8 /* Network.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				45F497B8279AF6FB0059DDC9 /* HTTPTask.swift in Sources */,
 				45F497BD279B078F0059DDC9 /* URLParameterEncoder.swift in Sources */,
 				4549B36B279854BE001E057B /* DetailViewController.swift in Sources */,
-				45A6600C2796B14200976DB8 /* Network.swift in Sources */,
 				45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */,
 				45F497C1279B0A2F0059DDC9 /* NetworkRouter.swift in Sources */,
 			);

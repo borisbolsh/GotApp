@@ -16,9 +16,13 @@ enum Result<String> {
     case failure(String)
 }
 
-struct NetworkManager {
+final class NetworkManager {
+    static let shared = NetworkManager()
+    
     static let environment: NetworkEnvironment = .production
     let router = Router<GOTApi>()
+
+    private init() {}
     
     func getCharacters(
         completion: @escaping (_ characters: [Character]?,_ error: String?)->()
@@ -58,6 +62,7 @@ struct NetworkManager {
         from imgStr: String,
         completion: @escaping(UIImage?,_ error: String?) -> Void
     ) {
+    
         router.request(.imageChar(imgName: imgStr)) { data, response, error in
             
             if error != nil {

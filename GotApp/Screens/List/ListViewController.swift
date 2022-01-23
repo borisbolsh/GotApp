@@ -6,18 +6,15 @@ final class ListViewController: UIViewController {
     private var filteredCharacters = [Character]()
     private var inSearchMode = false
     private var searchBar = UISearchBar()
-    
-    private var networkManager: NetworkManager?
+
     private let collectionView: UICollectionView
     private let spinner = UIActivityIndicatorView(style: .gray)
     
-    init(networkManager: NetworkManager) {
+    init() {
         let collectionViewLayout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        
         super.init(nibName: nil, bundle: nil)
         
-        self.networkManager = networkManager
         self.title = "Game of Thrones"
     }
     
@@ -117,8 +114,9 @@ extension ListViewController: UISearchBarDelegate {
 
 // MARK: API
 extension ListViewController {
+    
     private func fetchChars() {
-        networkManager?.getCharacters(completion: { characters, error in
+        NetworkManager.shared.getCharacters(completion: { characters, error in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
@@ -128,10 +126,11 @@ extension ListViewController {
                     self.spinner.stopAnimating()
                     self.collectionView.reloadData()
                 }
+                
             }
         })
     }
-   
+    
 }
 
 // MARK: UICollectionViewDataSource
@@ -144,8 +143,7 @@ extension ListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
-        
-        
+       
         cell.configure(
             with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row]
         )
