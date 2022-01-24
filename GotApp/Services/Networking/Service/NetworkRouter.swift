@@ -6,13 +6,13 @@ public typealias NetworkRouterCompletion = (
     _ error: Error?
 ) -> ()
 
-protocol NetworkRouter: AnyObject {
+protocol NetworkServiceRouter: AnyObject {
     associatedtype EndPoint: EndPointType
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
     func cancel()
 }
 
-class Router<EndPoint: EndPointType>: NetworkRouter {
+class NetworkRouter<EndPoint: EndPointType>: NetworkServiceRouter {
     private var task: URLSessionTask?
     
     func request(_ route: EndPoint,

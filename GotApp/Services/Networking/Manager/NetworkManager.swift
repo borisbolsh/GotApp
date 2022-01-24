@@ -20,7 +20,7 @@ final class NetworkManager {
     static let shared = NetworkManager()
     
     static let environment: NetworkEnvironment = .production
-    let router = Router<GOTApi>()
+    let router = NetworkRouter<GOTApi>()
 
     private init() {}
     
