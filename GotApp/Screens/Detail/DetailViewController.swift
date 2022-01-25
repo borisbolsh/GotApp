@@ -20,9 +20,11 @@ final class DetailViewController: UIViewController {
     private let familyLabel = UILabel()
     private var familyStackView = UIStackView()
     
-    init() {
+    init(char: Character) {
         super.init(nibName: nil, bundle: nil)
         self.title = "Person name"
+        
+        configurate(with: char)
     }
     
     required init?(coder aDecoder: NSCoder) {

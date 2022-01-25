@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		451D06EB27986E3B00728164 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451D06EA27986E3B00728164 /* UIViewController+Ext.swift */; };
 		45427613279EE4D800055C54 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45427612279EE4D800055C54 /* DI.swift */; };
-		45427620279F071500055C54 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4542761F279F071500055C54 /* AppCoordinator.swift */; };
+		45427620279F071500055C54 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4542761F279F071500055C54 /* Coordinator.swift */; };
 		4549B36B279854BE001E057B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549B36A279854BE001E057B /* DetailViewController.swift */; };
 		45A660092796944F00976DB8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A660082796944F00976DB8 /* Character.swift */; };
 		45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119A279687BA004D2585 /* AppDelegate.swift */; };
 		45C1119F279687BA004D2585 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C1119E279687BA004D2585 /* ListViewController.swift */; };
 		45C111A4279687BB004D2585 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C111A3279687BB004D2585 /* Assets.xcassets */; };
 		45C111A7279687BB004D2585 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45C111A5279687BB004D2585 /* LaunchScreen.storyboard */; };
+		45C28220279FC1C10095D900 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C2821F279FC1C10095D900 /* Router.swift */; };
+		45C28222279FC4CC0095D900 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C28221279FC4CC0095D900 /* ApplicationCoordinator.swift */; };
+		45C28224279FCE910095D900 /* PersonsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C28223279FCE910095D900 /* PersonsCoordinator.swift */; };
 		45D366C327973ED200D30BCA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D366C227973ED200D30BCA /* CollectionViewCell.swift */; };
 		45F497B4279AF54A0059DDC9 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F497B3279AF54A0059DDC9 /* EndPointType.swift */; };
 		45F497B6279AF6100059DDC9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F497B5279AF6100059DDC9 /* HTTPMethod.swift */; };
@@ -31,7 +34,7 @@
 /* Begin PBXFileReference section */
 		451D06EA27986E3B00728164 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		45427612279EE4D800055C54 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
-		4542761F279F071500055C54 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4542761F279F071500055C54 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4549B36A279854BE001E057B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		45A660082796944F00976DB8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		45C11197279687BA004D2585 /* GotApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GotApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +43,9 @@
 		45C111A3279687BB004D2585 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45C111A6279687BB004D2585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45C111A8279687BB004D2585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45C2821F279FC1C10095D900 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		45C28221279FC4CC0095D900 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		45C28223279FCE910095D900 /* PersonsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsCoordinator.swift; sourceTree = "<group>"; };
 		45D366C227973ED200D30BCA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		45F497B3279AF54A0059DDC9 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		45F497B5279AF6100059DDC9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -90,7 +96,10 @@
 		45427619279EFBAB00055C54 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				4542761F279F071500055C54 /* AppCoordinator.swift */,
+				4542761F279F071500055C54 /* Coordinator.swift */,
+				45C28221279FC4CC0095D900 /* ApplicationCoordinator.swift */,
+				45C28223279FCE910095D900 /* PersonsCoordinator.swift */,
+				45C2821F279FC1C10095D900 /* Router.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -309,6 +318,7 @@
 				45F497B4279AF54A0059DDC9 /* EndPointType.swift in Sources */,
 				45F497C4279B13340059DDC9 /* GOTEndPoint.swift in Sources */,
 				45D366C327973ED200D30BCA /* CollectionViewCell.swift in Sources */,
+				45C28220279FC1C10095D900 /* Router.swift in Sources */,
 				45C1119F279687BA004D2585 /* ListViewController.swift in Sources */,
 				45F497C7279B15EC0059DDC9 /* NetworkManager.swift in Sources */,
 				451D06EB27986E3B00728164 /* UIViewController+Ext.swift in Sources */,
@@ -317,8 +327,10 @@
 				45F497BB279AF85F0059DDC9 /* ParameterEncoding.swift in Sources */,
 				45F497B6279AF6100059DDC9 /* HTTPMethod.swift in Sources */,
 				45F497B8279AF6FB0059DDC9 /* HTTPTask.swift in Sources */,
+				45C28224279FCE910095D900 /* PersonsCoordinator.swift in Sources */,
 				45F497BD279B078F0059DDC9 /* URLParameterEncoder.swift in Sources */,
-				45427620279F071500055C54 /* AppCoordinator.swift in Sources */,
+				45427620279F071500055C54 /* Coordinator.swift in Sources */,
+				45C28222279FC4CC0095D900 /* ApplicationCoordinator.swift in Sources */,
 				4549B36B279854BE001E057B /* DetailViewController.swift in Sources */,
 				45C1119B279687BA004D2585 /* AppDelegate.swift in Sources */,
 				45F497C1279B0A2F0059DDC9 /* NetworkRouter.swift in Sources */,

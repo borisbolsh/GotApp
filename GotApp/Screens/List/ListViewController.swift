@@ -10,6 +10,9 @@ final class ListViewController: UIViewController {
     private let collectionView: UICollectionView
     private let spinner = UIActivityIndicatorView(style: .gray)
     
+    typealias OnSelectCharacter = (Character) -> Void
+    var onSelectCharacter: OnSelectCharacter?
+    
     init() {
         let collectionViewLayout = UICollectionViewFlowLayout()
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -156,11 +159,8 @@ extension ListViewController: UICollectionViewDataSource {
 extension ListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //TODO: change soon
-        let controller = DetailViewController()
-        controller.configurate(with: inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row])
-        navigationController?.pushViewController(controller, animated: true)
+        let character = inSearchMode ? filteredCharacters[indexPath.row] : characters[indexPath.row]
+        self.onSelectCharacter?(character)
     }
 }
 
