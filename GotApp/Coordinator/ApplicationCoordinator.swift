@@ -4,10 +4,10 @@ final class ApplicationCoordinator: AppCoordinator {
     
     private let coordinatorFactory: CoordinatorFactoryImpl
     private let router: Router
- 
+
     init(router: Router, coordinatorFactory: CoordinatorFactoryImpl) {
-        self.router = router
-        self.coordinatorFactory = coordinatorFactory
+      self.router = router
+      self.coordinatorFactory = coordinatorFactory
     }
     
     override func start() {

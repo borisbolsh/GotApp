@@ -39,7 +39,6 @@ final class ListViewController: UIViewController {
         
         collectionView.frame = view.bounds
     }
-    
 }
 
 // MARK: Setup UI
